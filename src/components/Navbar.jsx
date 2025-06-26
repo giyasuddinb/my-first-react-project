@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="text-white bg-orange-500 py-4 md:py-6 relative border-b-2 border-orange-800">
+    <nav className="text-[#FFCC00] bg-[#090040] py-4 md:py-6 sticky top-0 z-10 border-b-2 border-[#FFCC00]">
       <div className="container mx-auto md:px-20 flex justify-between items-center ">
         <h1 className="font-bold  text-1xl">React First Project</h1>
 
@@ -26,70 +26,72 @@ const Navbar = () => {
         <ul className="hidden md:flex gap-5 md:space-x-2 ">
           <li>
             {" "}
-            <Link to={"/"} className="hover:text-orange-900">
+            <Link to={"/"} className="hover:text-[#B13BFF]">
               Home
             </Link>{" "}
           </li>
           <li>
             {" "}
-            <Link to={"products"} className="hover:text-orange-900">
+            <Link to={"products"} className="hover:text-[#B13BFF]">
               Products
             </Link>{" "}
           </li>
           <li>
             {" "}
-            <Link to={"blogs"} className="hover:text-orange-900">
+            <Link to={"blogs"} className="hover:text-[#B13BFF]">
               Blogs
             </Link>{" "}
           </li>
           <li>
             {" "}
-            <Link to={"contact"} className="hover:text-orange-900">
+            <Link to={"contact"} className="hover:text-[#B13BFF]">
               Contact
             </Link>{" "}
           </li>
           <li>
             {" "}
-            <Link to={"about"} className="hover:text-orange-900">
+            <Link to={"about"} className="hover:text-[#B13BFF]">
               About Us
             </Link>{" "}
           </li>
         </ul>
 
-        <button className="hidden md:flex bg-white px-4 py-2 rounded cursor-pointer text-black">
+        <button className="hidden md:flex bg-[#B13BFF] px-4 py-2 rounded cursor-pointer text-[#FFCC00] font-bold">
           Login
         </button>
 
         {/* Mobile menu collapesd */}
 
         <div
-          className={`md:hidden w-full absolute bg-orange-300 top-full left-0 ${
+          className={`md:hidden w-full absolute bg-[#471396] top-full left-0 ${
             isOpen ? "block" : "hidden"
           }`}
         >
           <ul className="flex flex-col items-center py-4 space-y-2">
             <li>
               {" "}
-              <Link>Home</Link>{" "}
+              <Link className="hover:text-[#B13BFF]">Home</Link>{" "}
             </li>
             <li>
               {" "}
-              <Link>Products</Link>{" "}
+              <Link className="hover:text-[#B13BFF]">Products</Link>{" "}
             </li>
             <li>
               {" "}
-              <Link>Blogs</Link>{" "}
+              <Link className="hover:text-[#B13BFF]">Blogs</Link>{" "}
             </li>
             <li>
               {" "}
-              <Link>Contact</Link>{" "}
+              <Link className="hover:text-[#B13BFF]">Contact</Link>{" "}
             </li>
             <li>
               {" "}
-              <Link>About Us</Link>{" "}
+              <Link className="hover:text-[#B13BFF]">About Us</Link>{" "}
             </li>
             <li>
-              <button className="">Login</button>
+              <button className="md:flex bg-[#B13BFF] px-4 py-2 rounded cursor-pointer text-[#FFCC00] font-bold">
+                Login
+              </button>
             </li>
           </ul>
         </div>
