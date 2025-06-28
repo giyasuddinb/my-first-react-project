@@ -1,13 +1,23 @@
-import { useState } from "react";
-import { FaBars } from "react-icons/fa";
-import { IoMdClose } from "react-icons/io";
-import { Link } from "react-router";
+import { useEffect, useState } from 'react';
+import { FaBars } from 'react-icons/fa';
+import { IoMdClose } from 'react-icons/io';
+import { Link, useLocation } from 'react-router';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState('/');
+  const location = useLocation();
+
+  useEffect(() => {
+    setActiveLink(location.pathname || '/');
+  }, [location.pathname]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const hendelActiveLink = (path) => {
+    setActiveLink(path);
   };
 
   return (
@@ -25,34 +35,72 @@ const Navbar = () => {
 
         <ul className="hidden md:flex gap-5 md:space-x-2 ">
           <li>
-            {" "}
-            <Link to={"/"} className="hover:text-[#B13BFF]">
+            {' '}
+            <Link
+              to={'/'}
+              onClick={() => hendelActiveLink('/')}
+              className={`${
+                activeLink === '/' ? 'text-[#B13BFF]' : 'hover:text-[#B13BFF]'
+              }`}
+            >
               Home
-            </Link>{" "}
+            </Link>{' '}
           </li>
           <li>
-            {" "}
-            <Link to={"products"} className="hover:text-[#B13BFF]">
+            {' '}
+            <Link
+              to={'/products'}
+              onClick={() => hendelActiveLink('/products')}
+              className={`${
+                activeLink === '/products'
+                  ? 'text-[#B13BFF]'
+                  : 'hover:text-[#B13BFF]'
+              }`}
+            >
               Products
-            </Link>{" "}
+            </Link>{' '}
           </li>
           <li>
-            {" "}
-            <Link to={"blogs"} className="hover:text-[#B13BFF]">
+            {' '}
+            <Link
+              to={'/blogs'}
+              onClick={() => hendelActiveLink('/blogs')}
+              className={`${
+                activeLink === '/blogs'
+                  ? 'text-[#B13BFF]'
+                  : 'hover:text-[#B13BFF]'
+              }`}
+            >
               Blogs
-            </Link>{" "}
+            </Link>{' '}
           </li>
           <li>
-            {" "}
-            <Link to={"contact"} className="hover:text-[#B13BFF]">
+            {' '}
+            <Link
+              to={'/contact'}
+              onClick={() => hendelActiveLink('/contact')}
+              className={`${
+                activeLink === '/contact'
+                  ? 'text-[#B13BFF]'
+                  : 'hover:text-[#B13BFF]'
+              }`}
+            >
               Contact
-            </Link>{" "}
+            </Link>{' '}
           </li>
           <li>
-            {" "}
-            <Link to={"about"} className="hover:text-[#B13BFF]">
+            {' '}
+            <Link
+              to={'/about'}
+              onClick={() => hendelActiveLink('/about')}
+              className={`${
+                activeLink === '/about'
+                  ? 'text-[#B13BFF]'
+                  : 'hover:text-[#B13BFF]'
+              }`}
+            >
               About Us
-            </Link>{" "}
+            </Link>{' '}
           </li>
         </ul>
 
@@ -64,29 +112,29 @@ const Navbar = () => {
 
         <div
           className={`md:hidden w-full absolute bg-[#471396] top-full left-0 ${
-            isOpen ? "block" : "hidden"
+            isOpen ? 'block' : 'hidden'
           }`}
         >
           <ul className="flex flex-col items-center py-4 space-y-2">
             <li>
-              {" "}
-              <Link className="hover:text-[#B13BFF]">Home</Link>{" "}
+              {' '}
+              <Link className="hover:text-[#B13BFF]">Home</Link>{' '}
             </li>
             <li>
-              {" "}
-              <Link className="hover:text-[#B13BFF]">Products</Link>{" "}
+              {' '}
+              <Link className="hover:text-[#B13BFF]">Products</Link>{' '}
             </li>
             <li>
-              {" "}
-              <Link className="hover:text-[#B13BFF]">Blogs</Link>{" "}
+              {' '}
+              <Link className="hover:text-[#B13BFF]">Blogs</Link>{' '}
             </li>
             <li>
-              {" "}
-              <Link className="hover:text-[#B13BFF]">Contact</Link>{" "}
+              {' '}
+              <Link className="hover:text-[#B13BFF]">Contact</Link>{' '}
             </li>
             <li>
-              {" "}
-              <Link className="hover:text-[#B13BFF]">About Us</Link>{" "}
+              {' '}
+              <Link className="hover:text-[#B13BFF]">About Us</Link>{' '}
             </li>
             <li>
               <button className="md:flex bg-[#B13BFF] px-4 py-2 rounded cursor-pointer text-[#FFCC00] font-bold">
